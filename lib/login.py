@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import sys
+from playsound import playsound
 from login_ui import Ui_MainWindow
 from main import MainWİndow
 class MainnWindow(QMainWindow):
@@ -15,6 +16,7 @@ class MainnWindow(QMainWindow):
         self.show()
         self.setWindowTitle("Alya Siha LOGİN")
         self.ui.password_lineEdit.setText("admin")
+        # playsound("vikings.mp3")
         self.ui.send_btn.clicked.connect(self.sorgula)
 
     def sorgula(self) :
