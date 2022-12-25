@@ -246,6 +246,15 @@ color: rgb(104, 104, 104);
        </property>
        <item>
         <widget class="QFrame" name="right_top_frame">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(160, 170, 182);</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -276,21 +285,24 @@ color: rgb(104, 104, 104);
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="right_top_right_label">
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>100</height>
-             </size>
-            </property>
+           <widget class="QPushButton" name="alt_btn">
             <property name="text">
              <string/>
             </property>
-            <property name="pixmap">
-             <pixmap resource="log_icons.qrc">:/icon/images/Ekran görüntüsü 2022-12-23 010859.png</pixmap>
+            <property name="icon">
+             <iconset resource="log_icons.qrc">
+              <normaloff>:/icon/icons/minus-circle.svg</normaloff>:/icon/icons/minus-circle.svg</iconset>
             </property>
-            <property name="scaledContents">
-             <bool>true</bool>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="x_btn">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="log_icons.qrc">
+              <normaloff>:/icon/icons/x-circle.svg</normaloff>:/icon/icons/x-circle.svg</iconset>
             </property>
            </widget>
           </item>
@@ -324,6 +336,12 @@ SİSTEM YAPIM AŞAMASINDA</string>
        </item>
        <item>
         <widget class="QFrame" name="right_bottom_frame">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -332,7 +350,7 @@ SİSTEM YAPIM AŞAMASINDA</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
-           <widget class="QLabel" name="right_bottom_left_label_2">
+           <widget class="QLabel" name="right_bottom_left_label">
             <property name="text">
              <string>GÜNCELLEME CONTROL</string>
             </property>
@@ -347,8 +365,20 @@ SİSTEM YAPIM AŞAMASINDA</string>
           </item>
           <item>
            <widget class="QLabel" name="right_bottom_right_label">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
             <property name="text">
              <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="log_icons.qrc">:/icon/images/Ekran görüntüsü 2022-12-23 010859.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
             </property>
            </widget>
           </item>

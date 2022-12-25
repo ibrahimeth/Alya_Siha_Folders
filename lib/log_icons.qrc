@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="icon">
+    <file>../icons/x-circle.svg</file>
+    <file>../icons/minus-circle.svg</file>
     <file>images/lock.svg</file>
     <file>images/entry2.png</file>
     <file>images/1200px-OMÜ_logo.svg.png</file>
