@@ -1,4 +1,4 @@
-q# Alya_Siha_Folders
+# Alya_Siha_Folders
 <p>indirilmesi gereken kütüphaneler</p>
 <code>python -m pip install --upgrade pip</code>
 <code>pip install PyQt5</code>
