@@ -1,5 +1,4 @@
 
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -96,6 +95,13 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.main_bottom_frame)
         self.horizontalLayout.addWidget(self.main_frame)
         self.right_frame = QtWidgets.QFrame(self.centralwidget)
+        self.right_frame.setStyleSheet("background-color: rgb(4, 1, 35);\n"
+"\n"
+"\n"
+"border-color:rgb(255, 255, 255);\n"
+"border-style: solid;\n"
+"border-width: 0px px 0px 2px;\n"
+"")
         self.right_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.right_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.right_frame.setObjectName("right_frame")
@@ -109,7 +115,8 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.right_top_frame.sizePolicy().hasHeightForWidth())
         self.right_top_frame.setSizePolicy(sizePolicy)
-        self.right_top_frame.setStyleSheet("background-color: rgb(160, 170, 182);")
+        self.right_top_frame.setStyleSheet("background-color: rgb(160, 170, 182);\n"
+"border : none ;")
         self.right_top_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.right_top_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.right_top_frame.setObjectName("right_top_frame")
@@ -121,9 +128,10 @@ class Ui_MainWindow(object):
         self.right_top_left_label.setObjectName("right_top_left_label")
         self.horizontalLayout_5.addWidget(self.right_top_left_label)
         self.alt_btn = QtWidgets.QPushButton(self.right_top_frame)
+        self.alt_btn.setStyleSheet("")
         self.alt_btn.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icon/minus-circle.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icon/icons/minus-circle.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.alt_btn.setIcon(icon)
         self.alt_btn.setObjectName("alt_btn")
         self.horizontalLayout_5.addWidget(self.alt_btn)
@@ -143,7 +151,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.right_menu_label = QtWidgets.QLabel(self.right_menu_frame)
         self.right_menu_label.setObjectName("right_menu_label")
-        self.horizontalLayout_6.addWidget(self.right_menu_label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.horizontalLayout_6.addWidget(self.right_menu_label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.verticalLayout_2.addWidget(self.right_menu_frame)
         self.right_bottom_frame = QtWidgets.QFrame(self.right_frame)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Maximum)
@@ -160,11 +168,17 @@ class Ui_MainWindow(object):
         self.right_bottom_left_label.setObjectName("right_bottom_left_label")
         self.horizontalLayout_7.addWidget(self.right_bottom_left_label)
         self.right_bottom_menu_label = QtWidgets.QLabel(self.right_bottom_frame)
+        self.right_bottom_menu_label.setStyleSheet("border-color:rgb(255, 255, 255);\n"
+"border-style: solid;\n"
+"border-width: 0px 0px 0px 0px;")
         self.right_bottom_menu_label.setText("")
         self.right_bottom_menu_label.setObjectName("right_bottom_menu_label")
         self.horizontalLayout_7.addWidget(self.right_bottom_menu_label)
         self.right_bottom_right_label = QtWidgets.QLabel(self.right_bottom_frame)
         self.right_bottom_right_label.setMaximumSize(QtCore.QSize(100, 100))
+        self.right_bottom_right_label.setStyleSheet("border-color:rgb(255, 255, 255);\n"
+"border-style: solid;\n"
+"border-width: 4px 4px 4px 4px;")
         self.right_bottom_right_label.setText("")
         self.right_bottom_right_label.setPixmap(QtGui.QPixmap(":/icon/images/Ekran görüntüsü 2022-12-23 010859.png"))
         self.right_bottom_right_label.setScaledContents(True)
