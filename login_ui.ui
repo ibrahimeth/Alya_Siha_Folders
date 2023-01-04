@@ -222,6 +222,15 @@ color: rgb(104, 104, 104);
     </item>
     <item>
      <widget class="QFrame" name="right_frame">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(4, 1, 35);
+
+
+border-color:rgb(255, 255, 255);
+border-style: solid;
+border-width: 0px px 0px 2px;
+</string>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -253,7 +262,8 @@ color: rgb(104, 104, 104);
           </sizepolicy>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(160, 170, 182);</string>
+          <string notr="true">background-color: rgb(160, 170, 182);
+border : none ;</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -286,6 +296,9 @@ color: rgb(104, 104, 104);
           </item>
           <item>
            <widget class="QPushButton" name="alt_btn">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -318,7 +331,7 @@ color: rgb(104, 104, 104);
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_6">
-          <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+          <item alignment="Qt::AlignHCenter|Qt::AlignTop">
            <widget class="QLabel" name="right_menu_label">
             <property name="text">
              <string>Merhaba akadaşlar bizler TEKNOFEST 2023 Savaşan inasnsız hava aracı 
@@ -358,6 +371,11 @@ SİSTEM YAPIM AŞAMASINDA</string>
           </item>
           <item>
            <widget class="QLabel" name="right_bottom_menu_label">
+            <property name="styleSheet">
+             <string notr="true">border-color:rgb(255, 255, 255);
+border-style: solid;
+border-width: 0px 0px 0px 0px;</string>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -370,6 +388,11 @@ SİSTEM YAPIM AŞAMASINDA</string>
               <width>100</width>
               <height>100</height>
              </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-color:rgb(255, 255, 255);
+border-style: solid;
+border-width: 4px 4px 4px 4px;</string>
             </property>
             <property name="text">
              <string/>

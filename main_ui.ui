@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1321</width>
-    <height>1277</height>
+    <height>941</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -154,32 +154,22 @@ background-color: rgb(0,0,0);</string>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_13">
-             <item>
-              <widget class="QLabel" name="label_2">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>200</width>
-                 <height>200</height>
-                </size>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="pixmap">
-                <pixmap resource="icon.qrc">:/other/images/resim_1 arti_hor.png</pixmap>
-               </property>
-               <property name="scaledContents">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
             </layout>
            </widget>
           </item>
@@ -193,7 +183,7 @@ background-color: rgb(0,0,0);</string>
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_10">
              <item>
-              <widget class="QLabel" name="label">
+              <widget class="QLabel" name="pusula_label">
                <property name="enabled">
                 <bool>true</bool>
                </property>
@@ -205,8 +195,8 @@ background-color: rgb(0,0,0);</string>
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>200</width>
-                 <height>200</height>
+                 <width>1</width>
+                 <height>1</height>
                 </size>
                </property>
                <property name="maximumSize">
@@ -222,7 +212,7 @@ background-color: rgb(0,0,0);</string>
                 <string/>
                </property>
                <property name="pixmap">
-                <pixmap resource="icon.qrc">:/other/images/Pusula.png</pixmap>
+                <pixmap resource="icon.qrc">:/other/images/resim_1 arti_hor.png</pixmap>
                </property>
                <property name="scaledContents">
                 <bool>true</bool>
@@ -927,15 +917,15 @@ background-color: rgb(66, 66, 66);
           <item>
            <widget class="QLabel" name="mp_label">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
             <property name="maximumSize">
              <size>
-              <width>1000</width>
-              <height>1300</height>
+              <width>800</width>
+              <height>500</height>
              </size>
             </property>
             <property name="text">
