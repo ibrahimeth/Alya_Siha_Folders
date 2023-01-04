@@ -31,7 +31,7 @@ class MainnWindow(QMainWindow):
             self.player.stop()
             self.close()
             self.main.showMaximized()
-            self.playVoice("../sound/hoşgeldiniz.wav")
+            # self.playVoice("../sound/hoşgeldiniz.wav")
         elif(self.ui.password_lineEdit.text() == "") :
             self.ui.message_box_label.setText("you have to entry \na password.")
         else:
