@@ -1,7 +1,7 @@
 import io
-import folium # pip install folium
+import folium
 from PyQt5.QtWidgets import QWidget
-from PyQt5.QtWebEngineWidgets import QWebEngineView # pip install PyQtWebEngine
+from PyQt5.QtWebEngineWidgets import QWebEngineView
 
 class MyApp(QWidget):
     def __init__(self):

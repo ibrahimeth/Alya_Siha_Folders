@@ -9,6 +9,10 @@
 <code>pip install pandas</code>
 <code>pip install serial</code>
 <code>pip install pyserial</code>
+<code>pip install folium </code>
+<code>pip install PyQtWebEngine</code>
+<code>pip install PyQtWebEngine</code>
+<code>pip insall pyqtSlot</code>
 <br>
 <p>harici kütüphaneye illaki ihtiyaç var ama onlar zaten python ile beraberinde geliyor zaman geçtikçe zaten farklı kütüphaneleri import edeceğiz.<code>time, json, sys</code> 
 gibi uygulama içerisinde şuan yorumsuz şekili ile karmaşık geldiğinin farkındayım en ksıa sürede koda yorum satırları ekleyeceğim</p> 
