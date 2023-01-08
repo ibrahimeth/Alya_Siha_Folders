@@ -17,4 +17,4 @@
 <br>
 <p>harici kütüphaneye illaki ihtiyaç var ama onlar zaten python ile beraberinde geliyor zaman geçtikçe zaten farklı kütüphaneleri import edeceğiz.<code>time, json, sys</code> 
 gibi uygulama içerisinde şuan yorumsuz şekili ile karmaşık geldiğinin farkındayım en ksıa sürede koda yorum satırları ekleyeceğim</p> 
-![Ekran görüntüsü 2023-01-08 233705](https://user-images.githubusercontent.com/92324388/211218083-2a93578b-21a2-4a57-8dd8-823e2a417332.png)
+![Ekran görüntüsü 2023-01-08 233705](https://user-images.githubusercontent.com/92324388/211218139-acd9c7a5-5ebc-499e-a7b5-3d4b01009214.png)
