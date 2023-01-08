@@ -1,11 +1,13 @@
 # contributions by ibrahimeth
 # gerekli kütüphanelerimmizi iöport ediyoruz
+import matplotlib.image as mpimg
 import sys, math
-from PyQt5 import QtCore, QtWidgets
+import matplotlib as mpl
+from PyQt5 import QtCore, QtWidgets,QtGui
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
 from matplotlib.animation import FuncAnimation
-import matplotlib.image as img
+import matplotlib. image as img
 import matplotlib.pyplot as plt
 
 # kendimzice bir figure sahip olan bir sınıf oluşturduk böylece her gösterge aynı cinsten olacak
@@ -22,20 +24,19 @@ class pusula():
         self.cy = 600                                        #resimin 600. x kordinatında pikselde nokta oluşturduk
         self.r = 400                                         #0 ile 360 arasında değer alan aci değeri istedik
         self.aci = 0
-        self.pusula = MplCanvas(self, width= 4, height= 4, dpi=100)        #Pusula adında bir canvas oluşturduk
+        self.pusula = MplCanvas(self, width= 3, height= 4, dpi=100)        #Pusula adında bir canvas oluşturduk
         self.main()
 
     def main(self) :
-        hours_dx = self.cx + int(math.cos(math.radians(-self.aci))*self.r*.75)                 #Fonsiyonel formül oluşturuldu
-        hours_dy = self.cy - int(math.sin(math.radians(-self.aci))*self.r*.75)
-        self.ibre = img.imread("ayna.png")               
-        self.y = [600,hours_dy ]
-        self.x = [600,hours_dx]
+        # QtGui.QPixmap(u":/other/images/ibre.png")
+        self.ibre = img.imread("ibre.png") 
+        self.y = [600,1000]
+        self.x = [600,1000]
         self.pusula.axes.set_ylim([0,1200])                                           # y ekseninni düzenledik
         self.pusula.axes.imshow(self.ibre)
         self.ln = self.pusula.axes.plot(self.x, self.y,  linewidth=3)
         self.pusula.axes.axis("off")
-        self.animation = FuncAnimation(self.pusula.fig, self.update, interval = 90, init_func= self.artist)         #Animasyonu başlattık
+        self.animation = FuncAnimation(self.pusula.fig, self.update, interval = 700,  init_func= self.artist)         #Animasyonu başlattık
 
     def artist(self):
         return self.ln
@@ -44,13 +45,37 @@ class pusula():
         self.aci += 5
         hours_dx = self.cx + int(math.cos(math.radians(-self.aci))*self.r*.75)
         hours_dy = self.cy - int(math.sin(math.radians(-self.aci))*self.r*.75)
-        self.ibre = img.imread("ayna.png")
         self.y = [600,hours_dy ]
         self.x = [600,hours_dx]
         self.pusula.axes.clear()
         self.pusula.axes.imshow(self.ibre)
         self.pusula.axes.set_ylim([0, 1200])
         self.pusula.axes.plot(self.x, self.y, linewidth = 5)
-        self.pusula.axes.set_visible(True)
+        # self.pusula.axes.set_visible(True)
         self.pusula.axes.axis("off")
+        
 
+class Gyro_Cencor():
+    def __init__(self) -> None:
+        self.ox = 1500
+        self.oy = 1500
+        self.gyro = MplCanvas(self, width= 3, height= 4, dpi=100)
+        self.rotate = 0
+        self.main()
+    def main(self):
+        self.x = [1500 , 1900]
+        self.y = [1900, 1900]
+        self.image = img.imread("gyro_img.png")
+        self.gyro.axes.imshow(self.image)
+        self.lnn = self.gyro.axes.plot(self.x, self.y)
+        self.animationn = FuncAnimation(self.gyro.fig, self.update, interval = 90, init_func= self.artist)         #Animasyonu başlattık
+    def artist(self):
+        return self.lnn
+    def update(self,frame):
+        self.ly = self.ox + 100
+        self.x = [self.ox , self.ly]
+        self.y = [self.ox, self.ly]
+        self.gyro.axes.clear()
+        self.gyro.axes.imshow(self.image)
+        self.gyro.axes.axis("off")
+        self.gyro.axes.plot(self.x, self.y)

@@ -4,12 +4,12 @@ from PyQt5.QtGui import *
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 import sys
 import os
-from login_ui import Ui_MainWindow
+from  login_ui import Ui_MainWindow
 from main import MainWİndow
 
-class MainnWindow(QMainWindow):
+class Login_Window(QMainWindow):
     def __init__(self):
-        super(MainnWindow, self).__init__()
+        super(Login_Window, self).__init__()
         self.ui = Ui_MainWindow()
         self.main = MainWİndow()
         self.ui.setupUi(self)
@@ -24,14 +24,14 @@ class MainnWindow(QMainWindow):
         self.ui.send_btn.clicked.connect(self.sorgula)
         self.ui.alt_btn.clicked.connect(lambda : self.showMinimized())
         self.ui.x_btn.clicked.connect(lambda : self.close())
-        self.playVoice("../sound/vikings.wav")
+        self.playVoice("vikings.wav")
 
     def sorgula(self) :
         if(self.ui.password_lineEdit.text() == "admin"):
             self.player.stop()
             self.close()
             self.main.showMaximized()
-            # self.playVoice("../sound/hoşgeldiniz.wav")
+            # self.playVoice("/sound/hoşgeldiniz.wav")
         elif(self.ui.password_lineEdit.text() == "") :
             self.ui.message_box_label.setText("you have to entry \na password.")
         else:
@@ -62,7 +62,7 @@ class MainnWindow(QMainWindow):
 
 def mainLOOP():
     fas = QApplication(sys.argv)
-    win = MainnWindow()
+    win = Login_Window()
     sys.exit(fas.exec_())
 
 mainLOOP()
