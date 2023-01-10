@@ -9,8 +9,6 @@ class MyApp(QWidget):
         coordinate = (41.368268383757226, 36.2139464913406)
         m = folium.Map(
         	tiles='Stamen Terrain',
-            # width= 300,
-            # height= 430,
         	zoom_start=13,
         	location = coordinate
         )
