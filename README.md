@@ -1,6 +1,7 @@
 # Alya_Siha_Folders
 ![Ekran görüntüsü 2023-01-08 233425](https://user-images.githubusercontent.com/92324388/211218066-6afd6c4b-a94b-497e-a7d4-95e447979d5e.png)
-![Ekran görüntüsü 2023-01-08 233705](https://user-images.githubusercontent.com/92324388/211218139-acd9c7a5-5ebc-499e-a7b5-3d4b01009214.png)
+![ss1](https://user-images.githubusercontent.com/92324388/211555334-850fcb42-b3e3-4bd6-82bf-e477bd71e700.png)
+
 
 <p>indirilmesi gereken kütüphaneler</p>
 <code>python -m pip install --upgrade pip</code>
