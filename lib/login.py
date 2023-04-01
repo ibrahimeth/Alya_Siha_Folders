@@ -11,7 +11,6 @@ class Login_Window(QMainWindow):
     def __init__(self):
         super(Login_Window, self).__init__()
         self.ui = Ui_MainWindow()
-        self.main = MainWİndow()
         self.ui.setupUi(self)
         self.window_fix()
         self.player = QMediaPlayer()
@@ -30,6 +29,7 @@ class Login_Window(QMainWindow):
         if(self.ui.password_lineEdit.text() == "admin"):
             self.player.stop()
             self.close()
+            self.main = MainWİndow()
             self.main.showMaximized()
             # self.playVoice("/sound/hoşgeldiniz.wav")
         elif(self.ui.password_lineEdit.text() == "") :

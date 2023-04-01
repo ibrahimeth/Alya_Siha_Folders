@@ -369,7 +369,7 @@ SİSTEM YAPIM AŞAMASINDA</string>
             </property>
            </widget>
           </item>
-          <item>
+          <item alignment="Qt::AlignBottom">
            <widget class="QLabel" name="right_bottom_menu_label">
             <property name="styleSheet">
              <string notr="true">border-color:rgb(255, 255, 255);
@@ -377,7 +377,7 @@ border-style: solid;
 border-width: 0px 0px 0px 0px;</string>
             </property>
             <property name="text">
-             <string/>
+             <string>Version = V1.01</string>
             </property>
            </widget>
           </item>

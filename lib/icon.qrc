@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="other">
+    <file>images/gyro_pic.png</file>
     <file>images/Ekran görüntüsü 2023-01-10 040852.png</file>
     <file>images/Ekran görüntüsü 2023-01-10 035914.png</file>
     <file>images/Ekran görüntüsü 2023-01-10 034939.png</file>

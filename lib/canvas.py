@@ -1,15 +1,15 @@
 # contributions by ibrahimeth
-# gerekli kütüphanelerimmizi iöport ediyoruz
+#Alya_Siha_System
+# gerekli kütüphanelerimmizi import ediyoruz
 import matplotlib.image as mpimg
-import sys, math
-import matplotlib as mpl
-from PyQt5 import QtCore, QtWidgets,QtGui
+import math
+import numpy as np
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
 from matplotlib.animation import FuncAnimation
-import matplotlib. image as img
-import matplotlib.pyplot as plt
-
+import matplotlib.image as img
+from multiprocessing import Process
+from threading import Thread
 # kendimzice bir figure sahip olan bir sınıf oluşturduk böylece her gösterge aynı cinsten olacak
 class MplCanvas(FigureCanvasQTAgg):
         # initilation veya constructer kısmında figur ve axes taımladık
@@ -23,8 +23,8 @@ class pusula():
         self.cx = 600                                        #resimin 600. x kordinatında pikselde nokta oluşturduk
         self.cy = 600                                        #resimin 600. x kordinatında pikselde nokta oluşturduk
         self.r = 400                                         #0 ile 360 arasında değer alan aci değeri istedik
-        self.aci = 0
-        self.pusula = MplCanvas(self, width= 3, height= 4, dpi=100)        #Pusula adında bir canvas oluşturduk
+        self.aci = 90
+        self.pusula = MplCanvas(self, width= 4, height= 4, dpi=100)        #Pusula adında bir canvas oluşturduk
         self.main()
 
     def main(self) :
@@ -34,15 +34,15 @@ class pusula():
         self.x = [600,1000]
         self.pusula.axes.set_ylim([0,1200])                                           # y ekseninni düzenledik
         self.pusula.axes.imshow(self.ibre)
-        self.ln = self.pusula.axes.plot(self.x, self.y,  linewidth=3)
+        self.ln = self.pusula.axes.plot(self.x, self.y,  linewidth=3, marker = "o")
         self.pusula.axes.axis("off")
-        self.animation = FuncAnimation(self.pusula.fig, self.update, interval = 700,  init_func= self.artist)         #Animasyonu başlattık
+        self.animation = FuncAnimation(self.pusula.fig, self.update, interval = 1400,  init_func= self.artist)         #Animasyonu başlattık
 
     def artist(self):
         return self.ln
 
     def update(self, frame):
-        self.aci += 5
+        self.aci -= 5
         hours_dx = self.cx + int(math.cos(math.radians(-self.aci))*self.r*.75)
         hours_dy = self.cy - int(math.sin(math.radians(-self.aci))*self.r*.75)
         self.y = [600,hours_dy ]
@@ -50,16 +50,15 @@ class pusula():
         self.pusula.axes.clear()
         self.pusula.axes.imshow(self.ibre)
         self.pusula.axes.set_ylim([0, 1200])
-        self.pusula.axes.plot(self.x, self.y, linewidth = 5)
+        self.pusula.axes.plot(self.x, self.y, linewidth = 5, marker = "o")
         # self.pusula.axes.set_visible(True)
-        self.pusula.axes.axis("off")
-        
+        self.pusula.axes.axis("off")      
 
 class Gyro_Cencor():
     def __init__(self) -> None:
         self.ox = 1500
         self.oy = 1500
-        self.gyro = MplCanvas(self, width= 3, height= 4, dpi=100)
+        self.gyro = MplCanvas(self, width= 4, height= 4, dpi=100)
         self.rotate = 0
         self.main()
     def main(self):
@@ -79,3 +78,122 @@ class Gyro_Cencor():
         self.gyro.axes.imshow(self.image)
         self.gyro.axes.axis("off")
         self.gyro.axes.plot(self.x, self.y)
+
+class altimetre():
+    def __init__(self) -> None:
+        self.cx = 600
+        self.cy = 600
+        self.r = 400
+        self.aci = 90
+        self.altimetre = MplCanvas(self, width= 4 ,height= 4, dpi=100 )
+        self.main()
+    def main(self):
+        self.ibre = img.imread("Altimetreimg.png")
+        self.x = [600,1200]
+        self.y = [600,1200]
+        self.altimetre.axes.set_ylim([0,1200])
+        
+        self.altimetre.axes.imshow(self.ibre)
+
+        self.ln = self.altimetre.axes.plot(self.x, self.y, linewidth = 3, color = "white", marker = "o")
+        self.altimetre.axes.axis("off")
+        self.animation = FuncAnimation(self.altimetre.fig, self.update, interval = 1400, init_func=self.artist)
+
+    def artist(self):
+        return self.ln
+    
+    def update(self, frame):
+        self.aci -= 5
+        hours_dx = self.cx + int(math.cos(math.radians(-self.aci))*self.r*.75)
+        hours_dy = self.cy - int(math.sin(math.radians(-self.aci))*self.r*.75)
+        self.y = [600,hours_dy ]
+        self.x = [600,hours_dx]
+        self.altimetre.axes.clear()
+        self.altimetre.axes.imshow(self.ibre)
+        self.altimetre.axes.set_ylim([0, 1200])
+        self.altimetre.axes.plot(self.x, self.y, linewidth = 5, color = "white", marker = "o")
+        self.altimetre.axes.axis("off")      
+
+class battery():                   
+    def __init__(self) -> None:
+        self.cx = 600
+        self.cy = 600
+        self.r = 400
+        self.aci = 15
+        self.battery_indicator = MplCanvas(self, width= 4 ,height= 4 , dpi=100 )
+        self.main()
+    def main(self):
+        self.ibre = img.imread("batteryimg.png")
+        self.x = [600,1200]
+        self.y = [600,1200]
+        self.battery_indicator.axes.set_ylim([0,1200])
+        self.battery_indicator.axes.imshow(self.ibre)
+
+        self.ln = self.battery_indicator.axes.plot(self.x, self.y, linewidth = 3, color = "white", marker = "o")
+        self.battery_indicator.axes.axis("off")
+        self.animation = FuncAnimation(self.battery_indicator.fig, self.update, interval = 1400, init_func=self.artist)
+
+    def artist(self):
+        return self.ln
+    
+    def update(self, frame):                             # 3 de başla 32 de bitir  15 derece Full, 160 derece son
+        if (self.aci >= 15 and self.aci <= 160):
+            self.aci += 5
+        else :
+            self.aci = 15
+        hours_dx = self.cx + int(math.cos(math.radians(-self.aci))*self.r*.75)
+        hours_dy = self.cy - int(math.sin(math.radians(-self.aci))*self.r*.75)
+        self.y = [600,hours_dy ]
+        self.x = [600,hours_dx]
+        self.battery_indicator.axes.clear()
+        self.battery_indicator.axes.imshow(self.ibre)
+        self.battery_indicator.axes.set_ylim([0, 1200])
+        self.battery_indicator.axes.plot(self.x, self.y, linewidth = 5, color = "white", marker = "o")
+        self.battery_indicator.axes.axis("off")      
+
+class compass():
+    def __init__(self) -> None:
+        self.cx = 600
+        self.cy = 600
+        self.r = 400
+        self.aci = 0
+        self.compass_indicator = MplCanvas(self, width= 4,height= 4, dpi=100 )
+        self.main()
+    def main(self):
+        self.ibre = img.imread("compassimg.png")
+        self.x = [600,1200]
+        self.y = [600,1200]
+        self.compass_indicator.axes.set_ylim([0,1200])
+        
+        self.compass_indicator.axes.imshow(self.ibre)
+
+        self.ln = self.compass_indicator.axes.plot(self.x, self.y, linewidth = 3, color = "white", marker = "o")
+        self.compass_indicator.axes.axis("off")
+        self.animation = FuncAnimation(self.compass_indicator.fig, self.update, interval = 1400, init_func=self.artist)
+
+    def artist(self):
+        return self.ln
+    
+    def update(self, frame):
+        self.aci += 5
+        hours_dx = self.cx + int(math.cos(math.radians(-self.aci))*self.r*.75)
+        hours_dy = self.cy - int(math.sin(math.radians(-self.aci))*self.r*.75)
+        self.y = [600,hours_dy ]
+        self.x = [600,hours_dx]
+        self.compass_indicator.axes.clear()
+        self.compass_indicator.axes.imshow(self.ibre)
+        self.compass_indicator.axes.set_ylim([0, 1200])
+        self.compass_indicator.axes.plot(self.x, self.y, linewidth = 5, color = "white", marker = "o")
+        self.compass_indicator.axes.axis("off")      
+
+class indicator_type2():
+    def __init__(self) -> None:
+        self.x = 100
+        self.y = 5 
+        self.main()
+    def main(self):
+        self.indicator = MplCanvas(self,width=4,height=1,dpi=100)
+        # self.indicator.axes.set_ylim =([0,100])
+        x = np.array([10])
+        y = np.linspace(0,100,100)
+        self.ln = self.indicator.axes.barh(x, y, color = "pink")

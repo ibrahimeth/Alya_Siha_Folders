@@ -5,7 +5,7 @@ import sys
 import cv2, time
 from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread
 import numpy as np
-
+import threading
 
 class VideoThread(QThread):
     change_pixmap_signal = pyqtSignal(np.ndarray)
@@ -16,10 +16,9 @@ class VideoThread(QThread):
         # cap = cv2.VideoCapture("akinci.mp4")
         while True:
             ret, cv_img = cap.read()
+            cv2.waitKey(1)   #sıkıntı çıkarsa kapat
             if ret:
                 self.change_pixmap_signal.emit(cv_img)
-
-
 class App(QWidget):
     def __init__(self):
         super().__init__()
@@ -29,24 +28,17 @@ class App(QWidget):
         # create the label that holds the image
         self.image_label = QLabel(self)
         self.image_label.resize(self.disply_width, self.display_height)
-        # create a text label
+        # metin labeli oluşturdum
         self.textLabel = QLabel('Webcam')
 
-        # create a vertical box layout and add the two labels
-        # vbox = QVBoxLayout()
-        # vbox.addWidget(self.image_label)
-        # vbox.addWidget(self.textLabel)
-        # # set the vbox layout as the widgets layoutW
-        # self.setLayout(vbox)
-
-        # create the video capture thread
+        # video cAPturu oluşturuldu
         self.thread = VideoThread()
         # connect its signal to the update_image slot
         self.thread.change_pixmap_signal.connect(self.update_image)
         # start the thread
         self.thread.start()
 
-
+        
 
     @pyqtSlot(np.ndarray)
     def update_image(self, cv_img):
