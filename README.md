@@ -1,6 +1,7 @@
 # Alya_Siha_Folders
 ![Ekran görüntüsü 2023-01-08 233425](https://user-images.githubusercontent.com/92324388/211218066-6afd6c4b-a94b-497e-a7d4-95e447979d5e.png)
-![ss1](https://user-images.githubusercontent.com/92324388/211555334-850fcb42-b3e3-4bd6-82bf-e477bd71e700.png)
+![Ekran görüntüsü 2023-06-09 125757](https://github.com/ibrahimeth/Alya_Siha_Folders/assets/92324388/51baea7c-d7f9-4b58-bf2f-cec27c2350a4)
+
 
 
 <p>indirilmesi gereken kütüphaneler</p>
