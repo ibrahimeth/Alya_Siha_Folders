@@ -1,6 +1,7 @@
 # Alya_Siha_Folders
 ![Ekran görüntüsü 2023-01-08 233425](https://user-images.githubusercontent.com/92324388/211218066-6afd6c4b-a94b-497e-a7d4-95e447979d5e.png)
-![Ekran görüntüsü 2023-06-09 125757](https://github.com/ibrahimeth/Alya_Siha_Folders/assets/92324388/51baea7c-d7f9-4b58-bf2f-cec27c2350a4)
+![Ekran görüntüsü 2023-06-09 125757](https://github.com/ibrahimeth/Alya_Siha_Folders/assets/92324388/7c122ec2-3c7e-4c6e-983f-9cec2f1e3a04)
+
 
 
 
