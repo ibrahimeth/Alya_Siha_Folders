@@ -19,11 +19,11 @@ class MplCanvas(FigureCanvasQTAgg):
         super(MplCanvas, self).__init__(self.fig)
 
 class pusula():
-    def __init__(self) -> None:
+    def __init__(self, hiz) -> None:
         self.cx = 600                                        #resimin 600. x kordinatında pikselde nokta oluşturduk
         self.cy = 600                                        #resimin 600. x kordinatında pikselde nokta oluşturduk
         self.r = 400                                         #0 ile 360 arasında değer alan aci değeri istedik
-        self.aci = 90
+        self.aci = 90 - (hiz * 4.5)
         self.pusula = MplCanvas(self, width= 4, height= 4, dpi=100)        #Pusula adında bir canvas oluşturduk
         self.main()
 
@@ -36,13 +36,13 @@ class pusula():
         self.pusula.axes.imshow(self.ibre)
         self.ln = self.pusula.axes.plot(self.x, self.y,  linewidth=3, marker = "o")
         self.pusula.axes.axis("off")
-        self.animation = FuncAnimation(self.pusula.fig, self.update, interval = 1400,  init_func= self.artist)         #Animasyonu başlattık
+        self.update()
+        # self.animation = FuncAnimation(self.pusula.fig, self.update, interval = 1400,  init_func= self.artist)         #Animasyonu başlattık
 
     def artist(self):
         return self.ln
 
-    def update(self, frame):
-        self.aci -= 5
+    def update(self):
         hours_dx = self.cx + int(math.cos(math.radians(-self.aci))*self.r*.75)
         hours_dy = self.cy - int(math.sin(math.radians(-self.aci))*self.r*.75)
         self.y = [600,hours_dy ]
@@ -67,7 +67,8 @@ class Gyro_Cencor():
         self.image = img.imread("gyro_img.png")
         self.gyro.axes.imshow(self.image)
         self.lnn = self.gyro.axes.plot(self.x, self.y)
-        self.animationn = FuncAnimation(self.gyro.fig, self.update, interval = 90, init_func= self.artist)         #Animasyonu başlattık
+        self.update()
+        # self.animationn = FuncAnimation(self.gyro.fig, self.update, interval = 90, init_func= self.artist)         #Animasyonu başlattık
     def artist(self):
         return self.lnn
     def update(self,frame):
@@ -80,11 +81,11 @@ class Gyro_Cencor():
         self.gyro.axes.plot(self.x, self.y)
 
 class altimetre():
-    def __init__(self) -> None:
+    def __init__(self, irtifa_value) -> None:
         self.cx = 600
         self.cy = 600
         self.r = 400
-        self.aci = 90
+        self.aci = 90 - (irtifa_value * 3.6)
         self.altimetre = MplCanvas(self, width= 4 ,height= 4, dpi=100 )
         self.main()
     def main(self):
@@ -97,13 +98,13 @@ class altimetre():
 
         self.ln = self.altimetre.axes.plot(self.x, self.y, linewidth = 3, color = "white", marker = "o")
         self.altimetre.axes.axis("off")
-        self.animation = FuncAnimation(self.altimetre.fig, self.update, interval = 1400, init_func=self.artist)
+        self.update()
+        # self.animation = FuncAnimation(self.altimetre.fig, self.update, interval = 1400, init_func=self.artist)
 
     def artist(self):
         return self.ln
     
-    def update(self, frame):
-        self.aci -= 5
+    def update(self):
         hours_dx = self.cx + int(math.cos(math.radians(-self.aci))*self.r*.75)
         hours_dy = self.cy - int(math.sin(math.radians(-self.aci))*self.r*.75)
         self.y = [600,hours_dy ]
@@ -115,11 +116,11 @@ class altimetre():
         self.altimetre.axes.axis("off")      
 
 class battery():                   
-    def __init__(self) -> None:
+    def __init__(self, battery_value) -> None:
         self.cx = 600
         self.cy = 600
         self.r = 400
-        self.aci = 15
+        self.aci = 17.5 + 1.45 * (100 - battery_value) #17,5 - 162,5
         self.battery_indicator = MplCanvas(self, width= 4 ,height= 4 , dpi=100 )
         self.main()
     def main(self):
@@ -131,16 +132,14 @@ class battery():
 
         self.ln = self.battery_indicator.axes.plot(self.x, self.y, linewidth = 3, color = "white", marker = "o")
         self.battery_indicator.axes.axis("off")
-        self.animation = FuncAnimation(self.battery_indicator.fig, self.update, interval = 1400, init_func=self.artist)
+        self.update()
+        # self.animation = FuncAnimation(self.battery_indicator.fig, self.update, interval = 1400, init_func=self.artist)
 
     def artist(self):
         return self.ln
     
-    def update(self, frame):                             # 3 de başla 32 de bitir  15 derece Full, 160 derece son
-        if (self.aci >= 15 and self.aci <= 160):
-            self.aci += 5
-        else :
-            self.aci = 15
+    def update(self):                             # 3 de başla 32 de bitir  15 derece Full, 160 derece son
+
         hours_dx = self.cx + int(math.cos(math.radians(-self.aci))*self.r*.75)
         hours_dy = self.cy - int(math.sin(math.radians(-self.aci))*self.r*.75)
         self.y = [600,hours_dy ]
@@ -169,12 +168,13 @@ class compass():
 
         self.ln = self.compass_indicator.axes.plot(self.x, self.y, linewidth = 3, color = "white", marker = "o")
         self.compass_indicator.axes.axis("off")
-        self.animation = FuncAnimation(self.compass_indicator.fig, self.update, interval = 1400, init_func=self.artist)
+        self.update()
+        # self.animation = FuncAnimation(self.compass_indicator.fig, self.update, interval = 1400, init_func=self.artist)
 
     def artist(self):
         return self.ln
     
-    def update(self, frame):
+    def update(self):
         self.aci += 5
         hours_dx = self.cx + int(math.cos(math.radians(-self.aci))*self.r*.75)
         hours_dy = self.cy - int(math.sin(math.radians(-self.aci))*self.r*.75)

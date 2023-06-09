@@ -4,18 +4,20 @@ from PyQt5.QtGui import QPixmap
 import sys
 import cv2, time
 from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread
+from main_UI import Ui_MainWindow
 import numpy as np
 import threading
 
 class VideoThread(QThread):
     change_pixmap_signal = pyqtSignal(np.ndarray)
-
+    def __init__(self) -> None:
+        super(VideoThread, self).__init__()
     def run(self):
         # capture from web cam
-        cap = cv2.VideoCapture(0)
-        # cap = cv2.VideoCapture("akinci.mp4")
+        # self.cap = cv2.VideoCapture(self.a)
+        self.cap = cv2.VideoCapture(0)
         while True:
-            ret, cv_img = cap.read()
+            ret, cv_img = self.cap.read()
             cv2.waitKey(1)   #sıkıntı çıkarsa kapat
             if ret:
                 self.change_pixmap_signal.emit(cv_img)
